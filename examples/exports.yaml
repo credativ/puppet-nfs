@@ -1,0 +1,5 @@
+nfs_exports:
+    shared:
+        export_point: '/shared'
+        allowed_clients:
+            '*': ['rw','async']

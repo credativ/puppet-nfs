@@ -1,0 +1,9 @@
+nfs_ensure: true
+nfs_ensure_running: true
+nfs_ensure_enabled: true
+
+#nfs_config_source: puppet:///files/nfs.conf
+#nfs_config_template: nfs.conf.erb
+#nfs_disabled_hosts:
+#  - testhost1
+
