@@ -63,6 +63,12 @@ class nfs (
         owner   => 'root',
         group   => 'root',
         tag     => 'nfs_config',
+        notify  => Exec['exportfs']
+    }
+
+    exec { 'exportfs':
+        command     => '/usr/sbin/exportfs -a',
+        refreshonly => true
     }
 
     # Disable service on this host, if hostname is in disabled_hosts

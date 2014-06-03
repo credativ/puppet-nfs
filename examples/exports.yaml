@@ -2,4 +2,4 @@ nfs_exports:
     shared:
         export_point: '/shared'
         allowed_clients:
-            '*': ['rw','async']
+            '192.168.0.0/16': ['rw','async']
