@@ -79,13 +79,15 @@ class nfs (
         }
     }
 
-    if $config_source {
-        File <| tag == 'nfs_config' |> {
-            source  => $config_source
-        }
-    } elsif $config_template {
-        File <| tag == 'nfs_config' |> {
-            content => template($config_template)
+    if $manage_config {
+        if $config_source {
+            File <| tag == 'nfs_config' |> {
+                source  => $config_source
+            }
+        } elsif $config_template {
+            File <| tag == 'nfs_config' |> {
+                content => template($config_template)
+            }
         }
     }
 }
