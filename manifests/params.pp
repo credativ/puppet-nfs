@@ -4,7 +4,7 @@ class nfs::params {
     $ensure_enabled = true
     $manage_config      = true
     $config_file        = '/etc/exports'
-    $config_template    = undef
+    $config_template    = 'nfs/exports.erb'
     $config_source      = undef
     $disabled_hosts     = []
 }
