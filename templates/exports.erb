@@ -2,8 +2,8 @@
 <% exports.each do |export,config| -%>
 # <%= export %>
 <%= config['export_point'] -%>
-<% config['allowed_clients'].each do |client,opt| -%>
-<%= client -%>(<%= opt.join(",") -%> 
+ <% config['allowed_clients'].each do |client,opt| -%>
+<%= client -%>(<%= opt.join(",") -%>) 
 <% end -%>
 <% end -%>
 
