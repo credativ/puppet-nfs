@@ -63,7 +63,6 @@ class nfs (
         owner   => 'root',
         group   => 'root',
         tag     => 'nfs_config',
-        notify  => Service['nfs']
     }
 
     # Disable service on this host, if hostname is in disabled_hosts
