@@ -78,7 +78,7 @@ class nfs (
         }
     } else {
         class { 'nfs::client':
-            mounts  => $mountt
+            mounts  => $mounts
         }
     }
 
