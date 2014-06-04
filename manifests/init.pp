@@ -13,7 +13,7 @@
 #   What state to ensure for the package. Accepts the same values
 #   as the parameter of the same name for a package type.
 #   Default: present
-#   
+#
 # [* ensure_running *]
 #   Weither to ensure running nfs or not.
 #   Default: running
@@ -52,7 +52,6 @@ class nfs (
     if $role == 'auto' {
         case $::hostname {
             /nfs/: {
-                notify{"nfs role: 'server' (auto-guessed)": }
                 $real_role = 'server'
             }
             default: {
