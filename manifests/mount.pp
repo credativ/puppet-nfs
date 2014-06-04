@@ -4,14 +4,15 @@ define nfs::mount (
     $share,
     $options='defaults',
     $atboot=true,
+    $fstype='nfs'
 ) {
 
     mount { $title:
         ensure  => $ensure,
-        atboot  => $atboot,
         device  => $share,
+        fstype    => $fstype,
+        atboot  => $atboot,
         name    => $mountpoint,
-        path    => $path,
     }
 }
 
