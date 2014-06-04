@@ -52,6 +52,7 @@ class nfs (
     if $role == 'auto' {
         case $::hostname {
             /nfs/: {
+                notify{"nfs role: 'server' (auto-guessed)": }
                 $real_role = 'server'
             }
             default: {
