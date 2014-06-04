@@ -49,8 +49,21 @@ class nfs (
     $mounts             = params_lookup('mounts')
     ) inherits nfs::params {
 
+    if $role == 'auto' {
+        case $::hostname {
+            /nfs/: {
+                $real_role = 'server'
+            }
+            default: {
+                $real_role = 'client'
+            }
+        }
+    } else {
+        $real_role = $role
+    }
 
-    if $role == 'server' {
+
+    if $real_role == 'server' {
         class { 'nfs::server':
             ensure          => $ensure,
             ensure_running  => $ensure_running,
