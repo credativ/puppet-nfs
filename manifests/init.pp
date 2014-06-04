@@ -33,6 +33,7 @@
 #   A list of hosts whose nfs will be disabled, if their
 #   hostname matches a name in the list.
 #
+#
 
 class nfs (
     $ensure             = params_lookup('ensure'),
@@ -44,51 +45,28 @@ class nfs (
     $config_template    = params_lookup('config_template'),
     $disabled_hosts     = params_lookup('disabled_hosts'),
     $exports            = params_lookup('exports'),
+    $role               = params_lookup('role'),
+    $mounts             = params_lookup('mounts')
     ) inherits nfs::params {
 
-    package { 'nfs-kernel-server':
-        ensure => $ensure
-    }
 
-    service { 'nfs-kernel-server':
-        ensure      => $ensure_running,
-        enable      => $ensure_enabled,
-        hasrestart  => true,
-        hasstatus   => true,
-        require     => Package['nfs-kernel-server']
-    }
-
-    file { $config_file:
-        mode    => '0644',
-        owner   => 'root',
-        group   => 'root',
-        tag     => 'nfs_config',
-        notify  => Exec['exportfs']
-    }
-
-    exec { 'exportfs':
-        command     => '/usr/sbin/exportfs -a',
-        refreshonly => true
-    }
-
-    # Disable service on this host, if hostname is in disabled_hosts
-    if $::hostname in $disabled_hosts {
-        Service <| title == 'nfs-kernel-server' |> {
-            ensure  => 'stopped',
-            enabled => false,
+    if $role == 'server' {
+        class { 'nfs::server':
+            ensure          => $ensure,
+            ensure_running  => $ensure_running,
+            ensure_enabled  => $ensure_enabled,
+            manage_config   => $manage_config,
+            config_file     => $config_file,
+            config_source   => $config_source,
+            config_template => $config_template,
+            disabled_hosts  => $disabled_hosts,
+            exports         => $exports,
+        }
+    } else {
+        class { 'nfs::client':
+            mounts  => $mountt
         }
     }
 
-    if $manage_config {
-        if $config_source {
-            File <| tag == 'nfs_config' |> {
-                source  => $config_source
-            }
-        } elsif $config_template {
-            File <| tag == 'nfs_config' |> {
-                content => template($config_template)
-            }
-        }
-    }
 }
 
