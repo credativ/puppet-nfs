@@ -7,6 +7,6 @@ class nfs::params {
     $config_template    = 'nfs/exports.erb'
     $config_source      = undef
     $disabled_hosts     = []
-    $mounts             = undef,
+    $mounts             = undef
 }
 
