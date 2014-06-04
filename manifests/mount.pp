@@ -12,8 +12,9 @@ define nfs::mount (
     mount { $title:
         ensure  => $ensure,
         device  => $share,
-        fstype    => $fstype,
+        fstype  => $fstype,
         atboot  => $atboot,
+        options => $options,
         name    => $mountpoint,
     }
 }
