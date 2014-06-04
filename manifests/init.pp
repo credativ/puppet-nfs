@@ -63,7 +63,7 @@ class nfs (
         $real_role = $role
     }
 
-    notify{"nfs role: $real_role": }
+    notify{"nfs role: '$real_role'": }
 
     if $real_role == 'server' {
         class { 'nfs::server':

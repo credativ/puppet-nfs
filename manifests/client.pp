@@ -5,7 +5,7 @@ class nfs::client (
         ensure  => present
     }
 
-    if $nfs_mounts {
+    if $mounts {
         create_resources(nfs::mount, $mounts)
     }
 }

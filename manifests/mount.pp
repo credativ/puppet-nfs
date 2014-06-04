@@ -7,6 +7,8 @@ define nfs::mount (
     $fstype='nfs'
 ) {
 
+    File <| path == $mountpoint |> -> Mount[$mountpoint]
+
     mount { $title:
         ensure  => $ensure,
         device  => $share,
