@@ -1,0 +1,6 @@
+manifests   usr/share/puppet/modules.available/nfs
+templates   usr/share/puppet/modules.available/nfs
+LICENSE     usr/share/doc/puppet-module-nfs
+README*     usr/share/doc/puppet-module-nfs
+examples/*  usr/share/doc/puppet-module-nfs/examples
+
