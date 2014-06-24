@@ -1,1 +1,1 @@
-etc/puppet/modules/nfs
+usr/share/puppet/modules.available/nfs
