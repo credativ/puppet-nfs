@@ -4,7 +4,7 @@ class nfs::server (
     $ensure_enabled,
     $manage_config,
     $config_file,
-    $config_source,
+    $config_source = undef,
     $config_template,
     $disabled_hosts,
     $exports,

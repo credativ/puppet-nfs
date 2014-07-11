@@ -1,3 +1,9 @@
+puppet-module-nfs (1.0.4) unstable; urgency=medium
+
+  * set default value of config_file in nfs::server to undef
+
+ -- Arnd Hannemann <arnd.hannemann@credativ.de>  Fri, 11 Jul 2014 15:20:54 +0200
+
 puppet-module-nfs (1.0.3) unstable; urgency=medium
 
   * Fix exports.erb
