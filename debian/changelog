@@ -1,3 +1,9 @@
+puppet-module-nfs (1.0.5) UNRELEASED; urgency=medium
+
+  * Remove notify.
+
+ -- Bastian Blank <bastian.blank@credativ.de>  Wed, 16 Jul 2014 09:51:59 +0200
+
 puppet-module-nfs (1.0.4) unstable; urgency=medium
 
   * set default value of config_file in nfs::server to undef
