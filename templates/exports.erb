@@ -1,4 +1,4 @@
-# MANAGED BY PUPPET
+# MANAGED BY PUPPET (nfs/templates, via params/hiera)
 <% exports.each do |export,config| -%>
 # <%= export %>
  <% config['allowed_clients'].each do |client,opt| -%>
