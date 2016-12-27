@@ -36,17 +36,17 @@
 #
 
 class nfs (
-    $ensure             = params_lookup('ensure'),
-    $ensure_running     = params_lookup('ensure_running'),
-    $ensure_enabled     = params_lookup('ensure_enabled'),
-    $manage_config      = params_lookup('manage_config'),
-    $config_file        = params_lookup('config_file'),
-    $config_source      = params_lookup('config_source'),
-    $config_template    = params_lookup('config_template'),
-    $disabled_hosts     = params_lookup('disabled_hosts'),
-    $exports            = params_lookup('exports'),
-    $role               = params_lookup('role'),
-    $mounts             = params_lookup('mounts')
+    $ensure             = $::nfs::params::ensure,
+    $ensure_running     = $::nfs::params::ensure_running,
+    $ensure_enabled     = $::nfs::params::ensure_enabled,
+    $manage_config      = $::nfs::params::manage_config,
+    $config_file        = $::nfs::params::config_file,
+    $config_source      = $::nfs::params::config_source,
+    $config_template    = $::nfs::params::config_template,
+    $disabled_hosts     = $::nfs::params::disabled_hosts,
+    $exports            = $::nfs::params::exports,
+    $role               = $::nfs::params::role,
+    $mounts             = $::nfs::params::mounts,
     ) inherits nfs::params {
 
     if $role == 'auto' {
