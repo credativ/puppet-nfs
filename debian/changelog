@@ -1,4 +1,4 @@
-puppet-module-nfs (1.0.7) UNRELEASED; urgency=medium
+puppet-module-nfs (1.0.7) unstable; urgency=medium
 
   * Add an info where template comes from
 
